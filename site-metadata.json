@@ -16,14 +16,7 @@
         "type": "footer",
         "content": "&copy; Paolo Testori. Tutti i diritti riservati. Made by <a href=\"https://sollazzo.one\" target=\"_blank\" rel=\"noopener\">Nicholas Sollazzo</a>.",
         "has_social": true,
-        "social_links": [
-            {
-                "type": "action",
-                "label": "LinkedIn",
-                "url": "https://www.linkedin.com/",
-                "new_window": true
-            }
-        ]
+        "social_links": []
     },
     "domain": "https://www.ptstudiotecnico.it"
 }
