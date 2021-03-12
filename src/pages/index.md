@@ -5,7 +5,7 @@ sections:
     title: This is a hero headline.
     section_id: hero
     subtitle: '### This is a super-cool hero subhead.'
-    image: images/avatar.png
+    image: /images/PT Design.svg
     image_alt: Author avatar
   - type: section_content
     title: Text
