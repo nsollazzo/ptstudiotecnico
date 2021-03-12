@@ -12,11 +12,6 @@
             },
             {
                 "type": "action",
-                "label": "Generic",
-                "url": "/generic/"
-            },
-            {
-                "type": "action",
                 "label": "Elements",
                 "url": "/elements/"
             },
