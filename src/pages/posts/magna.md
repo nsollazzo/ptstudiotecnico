@@ -1,7 +1,7 @@
 ---
 title: Magna etiam sed lorem ipsum dolor amet
 subtitle: A cautionary tale about Magna etiam
-thumb_img_path: images/art.svg
+thumb_img_path: /images/art-logo.svg
 thumb_img_alt: Geometric pattern
 excerpt: >-
   Phasellus in ante vitae nibh porttitor tempus vitae ut ante. Vestibulum
