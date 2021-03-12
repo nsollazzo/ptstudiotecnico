@@ -72,7 +72,7 @@ seo:
       value: PT Studio Tecnico
       keyName: property
     - name: 'og:description'
-      value: The preview of the Vanilla theme
+      value: Studio tecnico Geometra Paolo testori
       keyName: property
     - name: 'og:image'
       value: /images/PT%20Design.svg
