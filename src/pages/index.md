@@ -61,7 +61,7 @@ sections:
       euismod nunc adipiscing lacinia erat ut sit. Arcu amet.
 seo:
   type: stackbit_page_meta
-  title: Stackbit Vanilla Theme
+  title: PT Studio Tecnico
   description: The preview of the Vanilla theme
   extra:
     - name: 'og:type'
