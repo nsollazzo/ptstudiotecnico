@@ -83,7 +83,7 @@ seo:
     - name: 'twitter:title'
       value: PT Studio Tecnico
     - name: 'twitter:description'
-      value: The preview of the Vanilla theme
+      value: Studio tecnico Geometra Paolo testori
     - name: 'twitter:image'
       value: /images/PT%20Design.svg
       relativeUrl: true
