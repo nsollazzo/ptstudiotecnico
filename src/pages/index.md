@@ -81,7 +81,7 @@ seo:
     - name: 'twitter:card'
       value: summary_large_image
     - name: 'twitter:title'
-      value: Stackbit Vanilla Theme
+      value: PT Studio Tecnico
     - name: 'twitter:description'
       value: The preview of the Vanilla theme
     - name: 'twitter:image'
