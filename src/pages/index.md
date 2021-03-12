@@ -63,7 +63,7 @@ sections:
 seo:
   type: stackbit_page_meta
   title: PT Studio Tecnico
-  description: The preview of the Vanilla theme
+  description: Studio tecnico Geometra Paolo testori
   extra:
     - name: 'og:type'
       value: website
