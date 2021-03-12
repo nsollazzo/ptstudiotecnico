@@ -9,11 +9,6 @@
                 "type": "action",
                 "label": "Home",
                 "url": "/"
-            },
-            {
-                "type": "action",
-                "label": "Ipsum",
-                "url": "/ipsum/"
             }
         ]
     },
