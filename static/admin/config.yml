@@ -1,0 +1,637 @@
+backend:
+  name: git-gateway
+  branch: preview
+media_folder: static/images
+public_folder: /images
+collections:
+  - name: config
+    label: Site Configuration
+    files:
+      - name: config
+        label: Site Configuration
+        file: site-metadata.json
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Site title
+          - widget: string
+            name: domain
+            label: Domain
+            required: false
+            hint: >-
+              The domain of your site, including the protocol, e.g.
+              https://mysite.com/
+          - widget: image
+            name: favicon
+            label: Favicon
+            required: false
+            hint: A square icon that represents your website
+          - widget: object
+            name: header
+            label: Header Configuration
+            required: false
+            fields:
+              - widget: string
+                name: title
+                label: Header Title
+                required: false
+                hint: The title displayed in the header
+              - widget: boolean
+                name: has_nav
+                label: Enable Navigation Menu
+                required: false
+                default: true
+                hint: Display the navigation bar in the header
+              - widget: list
+                name: nav_links
+                label: Navigation Links
+                required: false
+                hint: List of navigation links
+                fields:
+                  - widget: string
+                    name: label
+                    label: Label
+                    required: true
+                  - widget: string
+                    name: url
+                    label: URL
+                    required: true
+                    default: '#'
+                  - widget: boolean
+                    name: new_window
+                    label: Open in new tab/window
+                    required: false
+                    default: false
+                  - widget: boolean
+                    name: no_follow
+                    label: No follow
+                    required: false
+                    default: false
+                    hint: Add rel="nofollow" attribute to the link
+                  - widget: hidden
+                    name: type
+                    label: Object Type
+                    required: true
+                    hint: The type of the object
+                    default: action
+              - widget: hidden
+                name: type
+                label: Object Type
+                required: true
+                hint: The type of the object
+                default: header
+          - widget: object
+            name: footer
+            label: Footer Configuration
+            required: false
+            fields:
+              - widget: string
+                name: content
+                label: Footer Content
+                required: false
+                hint: The copyright text displayed in the footer
+              - widget: list
+                name: links
+                label: Links
+                required: false
+                hint: List of links in the footer
+                fields:
+                  - widget: string
+                    name: label
+                    label: Label
+                    required: true
+                  - widget: string
+                    name: url
+                    label: URL
+                    required: true
+                    default: '#'
+                  - widget: boolean
+                    name: new_window
+                    label: Open in new tab/window
+                    required: false
+                    default: false
+                  - widget: boolean
+                    name: no_follow
+                    label: No follow
+                    required: false
+                    default: false
+                    hint: Add rel="nofollow" attribute to the link
+                  - widget: hidden
+                    name: type
+                    label: Object Type
+                    required: true
+                    hint: The type of the object
+                    default: action
+              - widget: boolean
+                name: has_social
+                label: Enable Social Links
+                required: false
+                default: true
+                hint: Display social links in the footer
+              - widget: list
+                name: social_links
+                label: Social Links
+                required: false
+                hint: List of social links in the footer
+                fields:
+                  - widget: string
+                    name: label
+                    label: Label
+                    required: true
+                  - widget: string
+                    name: url
+                    label: URL
+                    required: true
+                    default: '#'
+                  - widget: boolean
+                    name: new_window
+                    label: Open in new tab/window
+                    required: false
+                    default: false
+                  - widget: boolean
+                    name: no_follow
+                    label: No follow
+                    required: false
+                    default: false
+                    hint: Add rel="nofollow" attribute to the link
+                  - widget: hidden
+                    name: type
+                    label: Object Type
+                    required: true
+                    hint: The type of the object
+                    default: action
+              - widget: hidden
+                name: type
+                label: Object Type
+                required: true
+                hint: The type of the object
+                default: footer
+  - name: author
+    label: Author
+    files:
+      - name: author
+        label: Author
+        file: src/data/author.json
+        fields:
+          - widget: string
+            name: name
+            label: Name
+            required: false
+          - widget: string
+            name: email
+            label: Email
+            required: false
+          - widget: image
+            name: avatar
+            label: Author Image
+            required: false
+          - widget: string
+            name: avatar_alt
+            label: Author Image Alt Text
+            required: false
+            hint: The alt text of the author image
+  - name: advanced
+    label: Advanced Pages
+    folder: src/pages
+    create: true
+    extension: md
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    fields:
+      - widget: string
+        name: title
+        label: Title
+        required: true
+        hint: The title of the page
+      - widget: list
+        name: sections
+        label: Sections
+        required: false
+        hint: Page sections
+        types:
+          - name: section_content
+            widget: object
+            label: Content Section
+            fields:
+              - widget: string
+                name: title
+                label: Section Title
+                required: false
+                hint: >-
+                  The section title (Used by the CMS, even if it is not
+                  displayed in the section)
+              - widget: string
+                name: section_id
+                label: Element ID
+                required: false
+                hint: >-
+                  A unique identifier that can be used when linking to this
+                  section. Must not contain whitespace.
+              - widget: image
+                name: image
+                label: Image
+                required: false
+                hint: The image of the section
+              - widget: string
+                name: image_alt
+                label: Image Alt Text
+                required: false
+                hint: The alt text of the section image
+              - widget: markdown
+                name: content
+                label: Content
+                required: false
+                hint: The text content of the section
+              - widget: hidden
+                name: type
+                label: Object Type
+                required: true
+                hint: The type of the object
+                default: section_content
+          - name: section_hero
+            widget: object
+            label: Hero Section
+            fields:
+              - widget: string
+                name: title
+                label: Section Title
+                required: false
+                hint: >-
+                  The section title (Used by the CMS, even if it is not
+                  displayed in the section)
+              - widget: string
+                name: section_id
+                label: Element ID
+                required: false
+                hint: >-
+                  A unique identifier that can be used when linking to this
+                  section. Must not contain whitespace.
+              - widget: markdown
+                name: subtitle
+                label: Subtitle
+                required: false
+                hint: The section subtitle
+              - widget: image
+                name: image
+                label: Image
+                required: false
+                hint: The image to display with the text
+              - widget: string
+                name: image_alt
+                label: Image Alt Text
+                required: false
+                hint: The alt text of the image
+              - widget: hidden
+                name: type
+                label: Object Type
+                required: true
+                hint: The type of the object
+                default: section_hero
+          - name: section_posts
+            widget: object
+            label: Posts Section
+            fields:
+              - widget: string
+                name: title
+                label: Section Title
+                required: false
+                hint: >-
+                  The section title (Used by the CMS, even if it is not
+                  displayed in the section)
+              - widget: string
+                name: section_id
+                label: Element ID
+                required: false
+                hint: >-
+                  A unique identifier that can be used when linking to this
+                  section. Must not contain whitespace.
+              - widget: boolean
+                name: has_more_link
+                label: Show read more link
+                required: false
+                default: true
+                hint: Display the read more link below the post excerpt
+              - widget: string
+                name: more_link_text
+                label: Read more link label
+                required: false
+              - widget: hidden
+                name: type
+                label: Object Type
+                required: true
+                hint: The type of the object
+                default: section_posts
+      - widget: object
+        name: seo
+        label: Seo
+        required: false
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: false
+            default: ''
+            hint: The page title that goes into the <title> tag
+          - widget: string
+            name: description
+            label: Description
+            required: false
+            default: ''
+            hint: >-
+              The page description that goes into the <meta name="description">
+              tag
+          - widget: list
+            name: robots
+            label: Robots
+            required: false
+            hint: The items that go into the <meta name="robots"> tag
+            field:
+              label: Select
+              name: select
+              widget: select
+              options:
+                - all
+                - index
+                - follow
+                - noindex
+                - nofollow
+                - noimageindex
+                - notranslate
+                - none
+          - widget: list
+            name: extra
+            label: Extra
+            required: false
+            hint: >-
+              Additional definition for specific meta tags such as open-graph,
+              twitter, etc.
+            fields:
+              - widget: string
+                name: name
+                label: Name
+                required: false
+                default: ''
+              - widget: string
+                name: value
+                label: Value
+                required: false
+                default: ''
+              - widget: string
+                name: keyName
+                label: Key Name
+                required: false
+                default: name
+              - widget: boolean
+                name: relativeUrl
+                label: Relative Url
+                required: false
+          - widget: hidden
+            name: type
+            label: Object Type
+            required: true
+            hint: The type of the object
+            default: stackbit_page_meta
+      - widget: hidden
+        name: template
+        label: Template
+        required: true
+        default: advanced
+    filter:
+      field: template
+      value: advanced
+  - name: page
+    label: Pages
+    folder: src/pages
+    create: true
+    extension: md
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    fields:
+      - widget: string
+        name: title
+        label: Title
+        required: true
+        hint: The title of the page
+      - widget: string
+        name: subtitle
+        label: Subtitle
+        required: false
+        hint: The text displayed just below the title
+      - widget: object
+        name: seo
+        label: Seo
+        required: false
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: false
+            default: ''
+            hint: The page title that goes into the <title> tag
+          - widget: string
+            name: description
+            label: Description
+            required: false
+            default: ''
+            hint: >-
+              The page description that goes into the <meta name="description">
+              tag
+          - widget: list
+            name: robots
+            label: Robots
+            required: false
+            hint: The items that go into the <meta name="robots"> tag
+            field:
+              label: Select
+              name: select
+              widget: select
+              options:
+                - all
+                - index
+                - follow
+                - noindex
+                - nofollow
+                - noimageindex
+                - notranslate
+                - none
+          - widget: list
+            name: extra
+            label: Extra
+            required: false
+            hint: >-
+              Additional definition for specific meta tags such as open-graph,
+              twitter, etc.
+            fields:
+              - widget: string
+                name: name
+                label: Name
+                required: false
+                default: ''
+              - widget: string
+                name: value
+                label: Value
+                required: false
+                default: ''
+              - widget: string
+                name: keyName
+                label: Key Name
+                required: false
+                default: name
+              - widget: boolean
+                name: relativeUrl
+                label: Relative Url
+                required: false
+          - widget: hidden
+            name: type
+            label: Object Type
+            required: true
+            hint: The type of the object
+            default: stackbit_page_meta
+      - widget: hidden
+        name: template
+        label: Template
+        required: true
+        default: page
+      - widget: markdown
+        name: body
+        label: Content
+        required: false
+        hint: Page content
+    filter:
+      field: template
+      value: page
+  - name: post
+    label: Posts
+    folder: src/pages/posts
+    create: true
+    extension: md
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    fields:
+      - widget: string
+        name: title
+        label: Title
+        required: true
+        hint: The title of the post
+      - widget: string
+        name: subtitle
+        label: Subtitle
+        required: false
+        hint: The text displayed just below the title
+      - widget: image
+        name: content_img_path
+        label: Image (single post)
+        required: false
+        hint: The image displayed in the single post
+      - widget: string
+        name: content_img_alt
+        label: Image alt text (single post)
+        required: false
+        hint: The alt text of the blog feed image
+      - widget: image
+        name: thumb_img_path
+        label: Image (blog feed)
+        required: false
+        hint: The image displayed in the blog feed
+      - widget: string
+        name: thumb_img_alt
+        label: Image alt text (blog feed)
+        required: false
+        hint: The alt text of the blog feed image
+      - widget: string
+        name: excerpt
+        label: Excerpt
+        required: false
+        hint: The excerpt of the post displayed in the blog feed
+      - widget: date
+        name: date
+        label: Date
+        required: true
+      - widget: object
+        name: seo
+        label: Seo
+        required: false
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: false
+            default: ''
+            hint: The page title that goes into the <title> tag
+          - widget: string
+            name: description
+            label: Description
+            required: false
+            default: ''
+            hint: >-
+              The page description that goes into the <meta name="description">
+              tag
+          - widget: list
+            name: robots
+            label: Robots
+            required: false
+            hint: The items that go into the <meta name="robots"> tag
+            field:
+              label: Select
+              name: select
+              widget: select
+              options:
+                - all
+                - index
+                - follow
+                - noindex
+                - nofollow
+                - noimageindex
+                - notranslate
+                - none
+          - widget: list
+            name: extra
+            label: Extra
+            required: false
+            hint: >-
+              Additional definition for specific meta tags such as open-graph,
+              twitter, etc.
+            fields:
+              - widget: string
+                name: name
+                label: Name
+                required: false
+                default: ''
+              - widget: string
+                name: value
+                label: Value
+                required: false
+                default: ''
+              - widget: string
+                name: keyName
+                label: Key Name
+                required: false
+                default: name
+              - widget: boolean
+                name: relativeUrl
+                label: Relative Url
+                required: false
+          - widget: hidden
+            name: type
+            label: Object Type
+            required: true
+            hint: The type of the object
+            default: stackbit_page_meta
+      - widget: hidden
+        name: template
+        label: Template
+        required: true
+        default: post
+      - widget: markdown
+        name: body
+        label: Content
+        required: false
+        hint: Page content
+    filter:
+      field: template
+      value: post
