@@ -4,7 +4,8 @@ sections:
   - type: section_hero
     title: Studio Tecnico
     section_id: hero
-    subtitle: '### This is a super-cool hero subhead.'
+    subtitle: |
+      ### Geometra Paolo Testori
     image: /images/PT Design.svg
     image_alt: Author avatar
   - type: section_content
