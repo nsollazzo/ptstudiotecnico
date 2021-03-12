@@ -2,7 +2,7 @@
 title: Home
 sections:
   - type: section_hero
-    title: This is a hero headline.
+    title: Studio Tecnico
     section_id: hero
     subtitle: '### This is a super-cool hero subhead.'
     image: /images/PT Design.svg
