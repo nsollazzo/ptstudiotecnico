@@ -12,11 +12,6 @@
             },
             {
                 "type": "action",
-                "label": "Elements",
-                "url": "/elements/"
-            },
-            {
-                "type": "action",
                 "label": "Ipsum",
                 "url": "/ipsum/"
             }
