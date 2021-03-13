@@ -30,7 +30,7 @@ sections:
     section_id: lorem-ipsum
     image_alt: lorem-ipsum
     content: |
-      ## Attenzione, sito in allestimento
+      ## ![](/images/wip.png)
     type: section_content
 seo:
   type: stackbit_page_meta
