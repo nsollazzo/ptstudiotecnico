@@ -11,10 +11,20 @@ sections:
   - type: section_content
     title: Text
     section_id: intro
-    content: |+
+    content: >+
       Telefono: [351 745 2017](tel:+393517452017)
 
+
       email: <info@ptstudiotecnico.it>
+
+
+      indirizzo: [Piazza 8 Marzo, 4 Bubbiano (MI)
+      20080](https://goo.gl/maps/nJrUpTSSYUj9AXpH7)
+
+
+      P.IVA: **11644390962**
+
+
 
 seo:
   type: stackbit_page_meta
